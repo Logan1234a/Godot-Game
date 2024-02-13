@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://5xo5fogorjcc"]
+
+[ext_resource type="Script" path="res://bone.gd" id="1_q6ns5"]
+[ext_resource type="Texture2D" uid="uid://b77qcvix3tfxm" path="res://Player/bone.png" id="1_ywvoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewy5r"]
+size = Vector2(37.0003, 40.0001)
+
+[sub_resource type="Animation" id="Animation_10yd8"]
+resource_name = "bone spin"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, -3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_al88d"]
+_data = {
+"bone spin": SubResource("Animation_10yd8")
+}
+
+[node name="bone" type="Area2D"]
+rotation = -1.57079
+scale = Vector2(0.999999, 0.999999)
+collision_layer = 8
+script = ExtResource("1_q6ns5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_ywvoc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.00016, -0.000371933)
+rotation = -1.57079
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_ewy5r")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_al88d")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

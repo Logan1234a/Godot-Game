@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://teq6sgni3llv"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_ofw5i"]
+[ext_resource type="PackedScene" uid="uid://br8spf22t2igi" path="res://level_1.tscn" id="1_xdpw5"]
+[ext_resource type="PackedScene" uid="uid://blggsd6x0rr23" path="res://pause.tscn" id="2_h1c2l"]
+
+[node name="Level" type="Node"]
+process_mode = 3
+script = ExtResource("1_ofw5i")
+
+[node name="Level1" parent="." instance=ExtResource("1_xdpw5")]
+process_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_h1c2l")]
+game_manager = NodePath("../..")

@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://blggsd6x0rr23"]
+
+[ext_resource type="Script" path="res://pause.gd" id="1_8n3va"]
+
+[sub_resource type="Theme" id="Theme_qdvco"]
+
+[sub_resource type="Theme" id="Theme_8ufn7"]
+
+[sub_resource type="Theme" id="Theme_ye5rh"]
+
+[node name="Pause" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8n3va")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -205.0
+offset_right = 275.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -125.5
+offset_right = 166.5
+offset_bottom = 122.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="move_speed" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Movement Speed Lvl."
+
+[node name="fire_rate" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Fire Rate Lvl."
+
+[node name="Damage" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Damage Lvl."
+
+[node name="Xp Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 525.0
+offset_right = 565.0
+offset_bottom = 23.0
+theme = SubResource("Theme_qdvco")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "   0"
+
+[node name="Label" type="Label" parent="Panel/Xp Label"]
+layout_direction = 1
+layout_mode = 1
+offset_left = -77.0
+offset_bottom = 23.0
+text = "XP Points:"
+
+[node name="MovementSpeed" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+offset_left = 364.0
+offset_top = 87.0
+offset_right = 424.0
+offset_bottom = 112.0
+theme = SubResource("Theme_8ufn7")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "0"
+
+[node name="Fire_Rate" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 333.0
+offset_top = 122.0
+offset_right = 398.0
+offset_bottom = 147.0
+theme = SubResource("Theme_ye5rh")
+theme_override_colors/default_color = Color(0, 0.87451, 0, 1)
+text = "0"
+
+[node name="Damage" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 330.0
+offset_top = 158.0
+offset_right = 395.0
+offset_bottom = 183.0
+theme = SubResource("Theme_ye5rh")
+theme_override_colors/default_color = Color(0, 0.87451, 0, 1)
+text = "0"
+
+[connection signal="pressed" from="Panel/VBoxContainer/move_speed" to="." method="_on_move_speed_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/fire_rate" to="." method="_on_fire_rate_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Damage" to="." method="_on_damage_pressed"]
