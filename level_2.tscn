@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b03efqhxmku4i"]
+
+[ext_resource type="Texture2D" uid="uid://bof8eovhhdwh0" path="res://Player/Hana.png" id="1_hrrkr"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(650, 321)
+scale = Vector2(4.585, 4.425)
+texture = ExtResource("1_hrrkr")
